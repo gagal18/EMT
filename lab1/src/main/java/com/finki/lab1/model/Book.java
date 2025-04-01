@@ -1,8 +1,10 @@
-package com.finki.lab1.models;
+package com.finki.lab1.model;
 
-import com.finki.lab1.models.enums.Category;
+import com.finki.lab1.model.enums.Category;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -15,6 +17,9 @@ public class Book {
     private Integer availableCopies;
     @OneToOne
     private Author author;
+    @ManyToMany
+    private List<UserBook> users;
+
     @Enumerated(EnumType.STRING)
     private Category category;
 

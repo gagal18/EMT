@@ -1,6 +1,6 @@
 package com.finki.lab1.services;
 
-import com.finki.lab1.models.Author;
+import com.finki.lab1.model.Author;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.finki.lab1.models;
+package com.finki.lab1.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
