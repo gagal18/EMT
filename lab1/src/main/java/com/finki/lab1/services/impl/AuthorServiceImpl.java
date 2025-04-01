@@ -51,9 +51,13 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public void deleteById(Long id) {
-        if (authorRepository.existsById(id)) {
+    public Optional<Author> deleteById(Long id) {
+        Optional<Author> existingAuthor = authorRepository.findById(id);
+        if (existingAuthor.isPresent()) {
             authorRepository.deleteById(id);
+            return existingAuthor;
+        }else{
+            return Optional.empty();
         }
     }
 }
