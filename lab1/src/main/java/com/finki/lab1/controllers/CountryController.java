@@ -1,7 +1,7 @@
 package com.finki.lab1.controllers;
 
-import com.finki.lab1.model.Country;
-import com.finki.lab1.services.CountryService;
+import com.finki.lab1.model.domains.Country.Country;
+import com.finki.lab1.services.domains.CountryService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.finki.lab1.services;
+package com.finki.lab1.services.domains;
 
-import com.finki.lab1.model.Country;
+import com.finki.lab1.model.domains.Country.Country;
 
 import java.util.List;
 import java.util.Optional;

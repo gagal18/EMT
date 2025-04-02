@@ -1,5 +1,6 @@
-package com.finki.lab1.model;
+package com.finki.lab1.model.domains.Author;
 
+import com.finki.lab1.model.domains.Country.Country;
 import jakarta.persistence.*;
 import lombok.Data;
 

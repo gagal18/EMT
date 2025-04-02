@@ -1,8 +1,9 @@
-package com.finki.lab1.services.impl;
+package com.finki.lab1.services.domains.impl;
 
-import com.finki.lab1.model.Author;
+import com.finki.lab1.dto.CreateAuthorDTO;
+import com.finki.lab1.model.domains.Author.Author;
 import com.finki.lab1.repository.AuthorRepository;
-import com.finki.lab1.services.AuthorService;
+import com.finki.lab1.services.domains.AuthorService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,8 +24,8 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public Optional<Author> save(Author author) {
-        return Optional.of(authorRepository.save(author));
+    public Optional<Author> save(CreateAuthorDTO author) {
+        return Optional.of(authorRepository.save(author.toAuthor()));
     }
 
     @Override

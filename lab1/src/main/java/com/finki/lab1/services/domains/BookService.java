@@ -1,7 +1,7 @@
-package com.finki.lab1.services;
+package com.finki.lab1.services.domains;
 
-import com.finki.lab1.model.Book;
-import com.finki.lab1.model.UserBook;
+import com.finki.lab1.model.domains.Books.Book;
+import com.finki.lab1.model.domains.User.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,5 +16,5 @@ public interface BookService {
     Optional<Book> update(Long id, Book book);
 
     Optional<Book> deleteById(Long id);
-    Optional<Book> reserveBook(Long id, UserBook user);
+    Optional<Book> reserveBook(Long id, User user);
 }

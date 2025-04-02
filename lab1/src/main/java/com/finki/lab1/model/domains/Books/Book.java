@@ -1,5 +1,7 @@
-package com.finki.lab1.model;
+package com.finki.lab1.model.domains.Books;
 
+import com.finki.lab1.model.domains.Author.Author;
+import com.finki.lab1.model.domains.User.User;
 import com.finki.lab1.model.enums.Category;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -17,8 +19,7 @@ public class Book {
     private Integer availableCopies;
     @OneToOne
     private Author author;
-    @ManyToMany
-    private List<UserBook> users;
+
 
     @Enumerated(EnumType.STRING)
     private Category category;

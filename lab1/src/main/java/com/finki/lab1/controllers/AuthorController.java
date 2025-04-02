@@ -1,10 +1,11 @@
 package com.finki.lab1.controllers;
 
 import com.finki.lab1.controllers.utils.ResponseEntityWrapper;
-import com.finki.lab1.model.Author;
-import com.finki.lab1.model.Country;
-import com.finki.lab1.services.AuthorService;
-import com.finki.lab1.services.CountryService;
+import com.finki.lab1.dto.CreateAuthorDTO;
+import com.finki.lab1.model.domains.Author.Author;
+import com.finki.lab1.model.domains.Country.Country;
+import com.finki.lab1.services.domains.AuthorService;
+import com.finki.lab1.services.domains.CountryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +32,7 @@ public class AuthorController {
     @PostMapping
     public Author create(@RequestParam String name, @RequestParam String surname, @RequestParam Long countryId) {
         Country country = this.countryService.findById(countryId).orElseThrow();
-        return this.authorService.save(new Author(name, surname, country)).orElseThrow();
+        return this.authorService.save(new CreateAuthorDTO(name, surname, country)).orElseThrow();
     }
 
     @GetMapping("/{id}")

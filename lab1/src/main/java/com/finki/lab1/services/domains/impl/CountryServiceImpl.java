@@ -1,8 +1,8 @@
-package com.finki.lab1.services.impl;
+package com.finki.lab1.services.domains.impl;
 
-import com.finki.lab1.model.Country;
+import com.finki.lab1.model.domains.Country.Country;
 import com.finki.lab1.repository.CountryRepository;
-import com.finki.lab1.services.CountryService;
+import com.finki.lab1.services.domains.CountryService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

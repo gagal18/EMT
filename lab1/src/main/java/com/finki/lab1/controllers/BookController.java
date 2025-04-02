@@ -1,13 +1,9 @@
 package com.finki.lab1.controllers;
 
 import com.finki.lab1.controllers.utils.ResponseEntityWrapper;
-import com.finki.lab1.model.Author;
-import com.finki.lab1.model.Book;
-import com.finki.lab1.model.Country;
-import com.finki.lab1.model.UserBook;
-import com.finki.lab1.services.AuthorService;
-import com.finki.lab1.services.BookService;
-import com.finki.lab1.services.CountryService;
+import com.finki.lab1.model.domains.Books.Book;
+import com.finki.lab1.model.domains.User.User;
+import com.finki.lab1.services.domains.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,12 +41,12 @@ public class BookController {
     }
 
     @PostMapping("/reserve/{id}")
-    public ResponseEntity<Book> reserveBook(@PathVariable Long id, @RequestBody UserBook user) {
+    public ResponseEntity<Book> reserveBook(@PathVariable Long id, @RequestBody User user) {
         System.out.println(user);
         return ResponseEntityWrapper.createResponse(this.bookService.reserveBook(id,user).orElseThrow());
     }
     @PostMapping("/return/{id}")
-    public ResponseEntity<Book> returnBook(@PathVariable Long id, @RequestBody UserBook user) {
+    public ResponseEntity<Book> returnBook(@PathVariable Long id, @RequestBody User user) {
         return ResponseEntityWrapper.createResponse(this.bookService.reserveBook(id,user).orElseThrow());
     }
     @DeleteMapping("/{id}")

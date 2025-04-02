@@ -1,4 +1,4 @@
-package com.finki.lab1.model;
+package com.finki.lab1.model.domains.Country;
 
 
 import jakarta.persistence.*;

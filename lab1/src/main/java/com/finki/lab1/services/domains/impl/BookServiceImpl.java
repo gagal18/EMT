@@ -1,13 +1,9 @@
-package com.finki.lab1.services.impl;
+package com.finki.lab1.services.domains.impl;
 
-import com.finki.lab1.model.Author;
-import com.finki.lab1.model.Book;
-import com.finki.lab1.model.UserBook;
+import com.finki.lab1.model.domains.Books.Book;
+import com.finki.lab1.model.domains.User.User;
 import com.finki.lab1.repository.BookRepository;
-import com.finki.lab1.services.BookService;
-import org.apache.catalina.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.finki.lab1.services.domains.BookService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -68,23 +64,24 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Optional<Book> reserveBook(Long id, UserBook userBook) {
+    public Optional<Book> reserveBook(Long id, User userBook) {
         Optional<Book> book = bookRepository.findById(id);
-        if (book.isPresent()) {
-            Book b = book.get();
-            b.setAvailableCopies(b.getAvailableCopies() == 0 ? 0 : b.getAvailableCopies() - 1);
-            List<UserBook> newUb = b.getUsers();
-            if(newUb.contains(userBook)){
-                newUb.remove(userBook);
-            }else{
-                newUb.add(userBook);
-            }
-            b.setUsers(newUb);
-            Book nB = bookRepository.save(b);
-            return Optional.of(nB);
-        }else{
-            return Optional.empty();
-        }
+        return book;
+//        if (book.isPresent()) {
+//            Book b = book.get();
+//            b.setAvailableCopies(b.getAvailableCopies() == 0 ? 0 : b.getAvailableCopies() - 1);
+//            List<User> newUb = b.getUsers();
+//            if(newUb.contains(userBook)){
+//                newUb.remove(userBook);
+//            }else{
+//                newUb.add(userBook);
+//            }
+//            b.setUsers(newUb);
+//            Book nB = bookRepository.save(b);
+//            return Optional.of(nB);
+//        }else{
+//            return Optional.empty();
+//        }
     }
 
 }

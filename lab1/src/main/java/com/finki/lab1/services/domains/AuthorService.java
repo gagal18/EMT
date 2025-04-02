@@ -1,6 +1,7 @@
-package com.finki.lab1.services;
+package com.finki.lab1.services.domains;
 
-import com.finki.lab1.model.Author;
+import com.finki.lab1.dto.CreateAuthorDTO;
+import com.finki.lab1.model.domains.Author.Author;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +9,7 @@ import java.util.Optional;
 public interface AuthorService {
     List<Author> findAll();
 
-    Optional<Author> save(Author author);
+    Optional<Author> save(CreateAuthorDTO author);
 
     Optional<Author> findById(Long id);
 
